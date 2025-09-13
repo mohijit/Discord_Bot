@@ -109,7 +109,8 @@ Art of Smart:
 # Define the time for the daily message (e.g., 10 AM UTC)
 daily_announcement_time = datetime.time(hour=8, minute=11, tzinfo=datetime.timezone.utc)
 
-global count = 0
+global count
+count = 0
 
 
 @bot.event
