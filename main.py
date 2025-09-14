@@ -36,7 +36,7 @@ intents.members = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 # Define the time for the daily message (e.g., 10 AM UTC)
-daily_announcement_time = datetime.time(hour=14, minute=23, tzinfo=datetime.timezone.utc)
+daily_announcement_time = datetime.time(hour=14, minute=29, tzinfo=datetime.timezone.utc)
 
 count = 0
 
