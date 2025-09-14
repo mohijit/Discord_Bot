@@ -7,14 +7,17 @@ import datetime
 import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
+
 class HealthHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
         self.end_headers()
         self.wfile.write(b"OK")
 
+
 def start_server():
     HTTPServer(("0.0.0.0", int(os.getenv("PORT", 8000))), HealthHandler).serve_forever()
+
 
 threading.Thread(target=start_server, daemon=True).start()
 
@@ -127,11 +130,9 @@ Art of Smart:
 """,
 ]
 # Define the time for the daily message (e.g., 10 AM UTC)
-daily_announcement_time = datetime.time(hour=12, minute=55, tzinfo=datetime.timezone.utc)
+daily_announcement_time = datetime.time(hour=13, minute=10, tzinfo=datetime.timezone.utc)
 
-global count
 count = 0
-
 
 @bot.event
 async def on_ready():
@@ -139,16 +140,16 @@ async def on_ready():
     if not daily_message_task.is_running():
         daily_message_task.start()
 
-
 @tasks.loop(time=daily_announcement_time)
 async def daily_message_task():
+    global count
     # Replace YOUR_CHANNEL_ID with the actual ID of the channel
     # where you want the message to be sent.
     channel_id = 1416325078420820141
     channel = bot.get_channel(channel_id)
     if channel:
         await channel.send(
-            f"""Daily English Advanced Question Update
+            f"""Daily English Advanced Question Update {count+1}
 
 Common Module: 
 
