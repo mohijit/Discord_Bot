@@ -36,7 +36,7 @@ intents.members = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 # Define the time for the daily message (e.g., 10 AM UTC)
-daily_announcement_time = datetime.time(hour=13, minute=16, tzinfo=datetime.timezone.utc)
+daily_announcement_time = datetime.time(hour=14, minute=23, tzinfo=datetime.timezone.utc)
 
 count = 0
 
@@ -51,7 +51,7 @@ async def daily_message_task():
     global count
     # Replace YOUR_CHANNEL_ID with the actual ID of the channel
     # where you want the message to be sent.
-    channel_id = 1416325078420820141
+    channel_id = 1416792509237166262
     channel = bot.get_channel(channel_id)
     if channel:
         await channel.send(
