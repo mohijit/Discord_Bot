@@ -127,9 +127,7 @@ Art of Smart:
 """,
 ]
 # Define the time for the daily message (e.g., 10 AM UTC)
-daily_announcement_time = [
-    datetime.time(hour=12, minute=55, tzinfo=datetime.timezone.utc)
-]
+daily_announcement_time = datetime.time(hour=12, minute=55, tzinfo=datetime.timezone.utc)
 
 global count
 count = 0
